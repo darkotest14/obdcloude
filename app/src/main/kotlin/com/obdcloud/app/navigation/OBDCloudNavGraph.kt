@@ -12,11 +12,13 @@ import com.obdcloud.feature.settings.ui.SettingsScreen
 @Composable
 fun OBDCloudNavGraph(
     navController: NavHostController,
+    modifier: androidx.compose.ui.Modifier = androidx.compose.ui.Modifier,
     startDestination: String = OBDCloudDestinations.GARAGE_ROUTE
 ) {
     NavHost(
         navController = navController,
-        startDestination = startDestination
+        startDestination = startDestination,
+        modifier = modifier
     ) {
         composable(OBDCloudDestinations.GARAGE_ROUTE) {
             GarageScreen(
