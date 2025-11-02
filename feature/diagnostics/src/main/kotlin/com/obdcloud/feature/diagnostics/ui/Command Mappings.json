@@ -1,0 +1,40 @@
+{
+  "engineControl": {
+    "sid201": {
+      "actuators": {
+        "fuelPressureControl": "0x60",
+        "fuelFlowControl": "0x59", 
+        "fanControl": "0x57",
+        "egrValve": "0x68",
+        "egrThrottle": "0x74",
+        "swirl": "0x72",
+        "powerRelay": "0x19",
+        "preheating": "0x28",
+        "turboControl": "0x70"
+      },
+      "parameters": {
+        "group1": "MESUREPARAMETRE1",
+        "group2": "MESUREPARAMETRE2",
+        "group3": "MESUREPARAMETRE3",
+        "group4": "MESUREPARAMETRE4",
+        "group5": "MESUREPARAMETRE5",
+        "group6": "MESUREPARAMETRE6",
+        "group7": "MESUREPARAMETRE7",
+        "group8": "MESUREPARAMETRE8",
+        "group9": "MESUREPARAMETRE9"
+      }
+    }
+  },
+  "transmission": {
+    "bvaAm6": {
+      "learning": ["neutralPosition", "oilChangeReset"],
+      "tests": ["adaptiveValues", "hydraulicTests"]
+    }
+  },
+  "airbag": {
+    "sacAutoliv": {
+      "dtcRead": "readDTC",
+      "security": ["unlock", "lock"]
+    }
+  }
+}

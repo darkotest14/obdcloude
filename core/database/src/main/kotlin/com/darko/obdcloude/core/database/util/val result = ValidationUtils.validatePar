@@ -1,0 +1,5 @@
+val result = ValidationUtils.validateParameter(parameter)
+when (result) {
+    is ValidationResult.Valid -> // proceed
+    is ValidationResult.Invalid -> // handle error
+}

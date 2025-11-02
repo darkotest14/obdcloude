@@ -1,0 +1,130 @@
+{
+  "version": "1.0.0",
+  "groups": [
+    {
+      "groupId": "delphi_150e_engine",
+      "name": "Engine Control",
+      "description": "Engine management system commands for Delphi 150e",
+      "commands": [
+        {
+          "id": "DEL150E_DPF_REGEN",
+          "name": "DPF Regeneration",
+          "description": "Force DPF regeneration cycle",
+          "protocol": "UDS",
+          "service": 49,
+          "subFunction": 1,
+          "routineId": 4098,
+          "requiresSecurityAccess": true,
+          "securityLevel": 5,
+          "prerequisites": [
+            {
+              "condition": "engine_running",
+              "value": "true",
+              "description": "Engine must be running"
+            },
+            {
+              "condition": "coolant_temp",
+              "value": ">80",
+              "description": "Engine coolant temperature must be above 80°C"
+            },
+            {
+              "condition": "battery_voltage",
+              "value": ">12.5",
+              "description": "Battery voltage must be above 12.5V"
+            },
+            {
+              "condition": "vehicle_speed",
+              "value": "0",
+              "description": "Vehicle must be stationary"
+            }
+          ],
+          "safetyNotes": "Do not interrupt the regeneration process. Keep vehicle stationary with engine running until completed. Process may take up to 30 minutes.",
+          "timeout": 1800000
+        },
+        {
+          "id": "DEL150E_INJ_CODING",
+          "name": "Injector Coding",
+          "description": "Write injector calibration codes",
+          "protocol": "UDS",
+          "service": 46,
+          "did": 61777,
+          "requiresSecurityAccess": true,
+          "securityLevel": 5,
+          "prerequisites": [
+            {
+              "condition": "engine_running",
+              "value": "false",
+              "description": "Engine must be off"
+            },
+            {
+              "condition": "ignition",
+              "value": "on",
+              "description": "Ignition must be on"
+            }
+          ],
+          "safetyNotes": "Ensure correct injector codes are entered. Incorrect codes may cause engine damage."
+        },
+        {
+          "id": "DEL150E_RAIL_PRESSURE",
+          "name": "Rail Pressure Control",
+          "description": "Common rail pressure control test",
+          "protocol": "UDS",
+          "service": 49,
+          "subFunction": 1,
+          "routineId": 515,
+          "requiresSecurityAccess": true,
+          "securityLevel": 5,
+          "prerequisites": [
+            {
+              "condition": "engine_running",
+              "value": "true",
+              "description": "Engine must be running"
+            },
+            {
+              "condition": "engine_temp",
+              "value": ">40",
+              "description": "Engine temperature must be above 40°C"
+            }
+          ],
+          "safetyNotes": "Monitor rail pressure during test. Stop if unusual pressure values observed."
+        }
+      ]
+    },
+    {
+      "groupId": "delphi_150e_transmission",
+      "name": "Transmission Control",
+      "description": "Transmission system commands for Delphi 150e",
+      "commands": [
+        {
+          "id": "DEL150E_GEAR_LEARN",
+          "name": "Gear Learning",
+          "description": "Transmission gear position learning",
+          "protocol": "UDS",
+          "service": 49,
+          "subFunction": 1,
+          "routineId": 769,
+          "requiresSecurityAccess": true,
+          "securityLevel": 5,
+          "prerequisites": [
+            {
+              "condition": "engine_running",
+              "value": "true",
+              "description": "Engine must be running"
+            },
+            {
+              "condition": "vehicle_speed",
+              "value": "0",
+              "description": "Vehicle must be stationary"
+            },
+            {
+              "condition": "transmission_temp",
+              "value": "40-100",
+              "description": "Transmission temperature must be between 40°C and 100°C"
+            }
+          ],
+          "safetyNotes": "Ensure vehicle is on level ground with parking brake applied."
+        }
+      ]
+    }
+  ]
+}

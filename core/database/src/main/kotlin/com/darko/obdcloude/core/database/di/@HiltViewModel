@@ -1,0 +1,4 @@
+@HiltViewModel
+class DiagnosticViewModel @Inject constructor(
+    private val repository: VehicleDatabaseRepository
+) : ViewModel()

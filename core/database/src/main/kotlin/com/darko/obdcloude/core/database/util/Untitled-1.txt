@@ -1,0 +1,5 @@
+val searchUtils: DatabaseSearchUtils by inject()
+val results = searchUtils.searchEnginesByDisplacement(
+    engines = repository.getEnginesForModel(modelId),
+    displacement = 1600
+)

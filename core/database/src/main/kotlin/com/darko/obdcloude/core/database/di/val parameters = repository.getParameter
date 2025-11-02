@@ -1,0 +1,2 @@
+val parameters = repository.getParametersForEcuSystem(ecuId).asLiveData()
+val commands = repository.getCommandsForEcuSystem(ecuId).asLiveData()

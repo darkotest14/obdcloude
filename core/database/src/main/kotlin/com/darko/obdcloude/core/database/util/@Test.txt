@@ -1,0 +1,6 @@
+@Test
+fun testDatabase() {
+    val db = TestDatabaseUtil.createTestDatabase()
+    TestDatabaseUtil.generateTestData(db)
+    // perform tests
+}

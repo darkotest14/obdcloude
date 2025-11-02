@@ -1,0 +1,3 @@
+val manufacturers = repository.getAllManufacturers().asLiveData()
+val models = repository.getModelsForManufacturer(manufacturerId).asLiveData()
+val engines = repository.getEnginesForModel(modelId).asLiveData()

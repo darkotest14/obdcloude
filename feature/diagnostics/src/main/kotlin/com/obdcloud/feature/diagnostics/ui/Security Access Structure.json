@@ -1,0 +1,13 @@
+{
+  "securityLevels": {
+    "level1": "diagnostics",
+    "level2": "coding",
+    "level3": "programming"
+  },
+  "accessSequences": {
+    "sid201": {
+      "seedKeyAlgorithm": "customPSA",
+      "unlockSequence": ["requestSeed", "calculateKey", "sendKey"]
+    }
+  }
+}
