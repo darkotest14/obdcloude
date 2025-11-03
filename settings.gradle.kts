@@ -34,3 +34,5 @@ include(":feature:diagnostics")
 include(":feature:vehicle")
 include(":feature:coding")
 include(":feature:service")
+
+include(":test-app")
